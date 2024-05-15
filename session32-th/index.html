@@ -9,5 +9,58 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- 
+      1.function
+      khi cập nhật state
+      setState
+      2.class
+      khi cập nhật state 
+      this.setState
+      khi cập nhật state đối với function và class có khác nhau gì không?
+      - đối với function thì khi setState : replace ( thay thế)
+      - đối với class thì khi setState : merge (gộp)
+      *******************
+      props không thể thay đổi ở component con 
+      *********************
+      lifecycle trong reactjs có 4 giai đoạn
+      1. initial
+      2. mounting
+      3. update
+      4. unmount
+      ********************
+      props dùng để truyền dữ liệu giữa các component có quan hệ cha-con
+      *******************
+      state là dùng để lưu trữ thông tin, dữ liệu có thể thay đổi trong quá trình
+      sử dụng
+      *********************
+      Reactjs dung virtual DOM (dom ảo)
+      Reactjs  có hỗ trợ SSR ( server side rendering): NEXTJS
+      Reactjs ràng buộc dữ liệu 1 chiều : oneway data biding
+      ***************
+      SPA : single page application : ứng dụng trang đơn
+      index.html: lần đầu tiên tải trang thì toàn bộ dữ liệu sẽ được tải xuống
+      file index.html
+      MPA: multi page application  : ứng dụng nhiều trang
+      khi truy cập trang nào thì sẽ loading dữ liệu trang đó: 
+      ==> tối ưu cho SEO ( search engine  optimization)
+      tối tưu công cụ tìm kiếm 
+      sau này làm dự án
+      trong web có nhiều component 
+      cài thêm thư viện react* router-dom: để quản lý các route
+      ***************
+      Reactjs dùng thư viện babel để biên dịch code js thành jsx
+      ****************
+      Destructuring là cách truy cập thuộc tính của đối tượng hoặc
+      phần tử trong array một cách dễ dàng.
+      ****************
+
+     -->
+     <script>
+      const obj={
+        name:"hoa",
+        address:"hn"
+      }
+      const {address1,name}=obj;
+     </script>
   </body>
 </html>
