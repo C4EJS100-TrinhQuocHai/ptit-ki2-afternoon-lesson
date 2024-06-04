@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        ĐỒNG BỘ VÀ BẤT ĐỒNG BỘ
+        ĐỒNG BỘ : Synchronous
+        BẤT ĐỒNG BỘ: Asynchronous
+        Javascript là 1 ngôn ngữ đơn luồng, tức là 1 chạy một luồng duy nhất.
+        luồng code chạy, chạy từ trái qua phải ==> từ trên xuống dưới
+        Q/A: tại sao JS không đa luồng mà chỉ đơn luồng thôi?
+        khi đa luồng cái luồng nó sẽ chia sẻ tài nguyên lẫn nhau, ảnh hưởng đến logic
+        code lẫn nhau cho nên tư duy ban đầu của JS là đơn luồng single-thread;
+        Khi gặp các tác vụ cần thời gian xử lý (chọc vào database, gửi request lên 
+        server, đọc file, ghi file ....) thì JS nó sẽ không đợi các tác vụ này xử lý
+        xong rồi mới đến tác vụ khác.
+        3 cách để giải quyết các tác bụ bất đồng bộ .
+        1. callback là gì? sinh ra đầu 
+            là hàm được truyền vào làm đối số của hàm khác.
+        2. promise- ES6(2015)
+        3. asyn-await
+     -->
+    <script>
+        let sdt;
+        function xinSdt(callback) {
+            console.log("Hoàng gọi cho Quỳnh xin số Phương Anh");
+            console.log("Quỳnh bảo đợi tý để tìm số");
+            setTimeout(() => {
+                sdt = 123456;
+                callback(sdt);
+            }, 3000);
+
+        }
+        xinSdt(goiKhiCoSoPhuongAnh);
+        // dùng callback để giải quyết vấn đề
+        // tạo hàm khi nào có số thì mới gọi.
+        function goiKhiCoSoPhuongAnh(sdt) {
+            console.log(`Hoàng gọi cho Phương Anh theo số ${sdt}`);
+        }
+        // hàm find, findIndex, filter nhận về tham số callback
+
+        // hàm map
+        //     let arr=[1,2,3,4,5];
+        //    let result= arr.map((item)=>item*2);
+        //     console.log("1111",result);
+        //     // tạo 1 hàm như hàm map;
+
+        function customMap(arr, callback) {
+            let resulArr = [];
+            for (const value of arr) {
+                resulArr.push(callback(value));
+            }
+            return resulArr;
+        }
+        let arr = [1, 2, 3, 4, 5];
+        console.log("giá trị mảng mới sau khi dùng custommap",
+        customMap(arr, (item) => item * 2));
+        // setTimeout(() => {
+        //     console.log("1111");
+        //     setTimeout(() => {
+        //         console.log("2222");
+        //         setTimeout(() => {
+        //             console.log("3333");
+        //             setTimeout(() => {
+        //                 console.log("4444");
+        //             }, 1000);
+        //         }, 1000);
+        //     }, 1000);
+        // }, 1000);
+    </script>
+</body>
+
+</html>
