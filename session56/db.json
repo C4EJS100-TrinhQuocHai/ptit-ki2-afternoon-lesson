@@ -1,0 +1,26 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "hùng"
+        },
+        {
+            "id": 2,
+            "name": "hoa"
+        }
+    ],
+    "products": [
+        {
+            "id": 12,
+            "name": "iphone5"
+        }
+    ],
+    "comment": [
+        {
+            "id": 1,
+            "idUser": 1,
+            "idProduct": 12,
+            "content":"good"
+        }
+    ]
+}

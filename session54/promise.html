@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ASYNCHRONOUS-Bất đồng bộ
+        1. Callback
+            là hàm được truyền vào làm đối số của hàm khác
+            -khi nhiều hàm lồng vào nhau thì sẽ dẫn đến tình trạng callback-hell
+        2. Promise
+         - sinh ra ở phiên bản ES6(2015) để xử lý các tác vụ bất đồng bộ.
+         - khi gặp các code dạng callback-hell khi xử lý với promise code nhìn gọn
+         gàng hơn, dễ maintain.
+
+         Cách dùng promise
+         1.khởi tạo promise bằng new Promise();
+         2.bên trong hàm tạo constructor object nhận vào 1 đối số là function
+         trong function này nhận vào 2 tham số (resolve,reject)
+           + khi logic code thành công thì gọi resolve
+           + khi logic code thất bại thì gọi reject
+         3.promise
+          .then((data)=>console.log(data));
+          .catch((error)=>console.log(err));
+         Khi trong promise có rất nhiều then thì tham số của then sau sẽ nhận kết
+         quả trả về của hàm then trước.
+        3. Async-await
+
+     -->
+     <script>
+        // setTimeout(()=>{
+        //     console.log(" thực hiện công việc thứ 1");
+        //     // sau khi việc 1 làm xong, việc thứ 2 cần kết quả của việc 1
+        //     setTimeout(() => {
+        //      console.log("thực hiện công việc thứ 2");
+        //      setTimeout(()=>{
+        //       console.log("thực viện công việc thứ 3");
+        //      },1000)
+        //     }, 1000);
+        // },1000)
+        let promise= new Promise((resolve,reject)=>{
+            // resolve : giải quyết, thành công
+            // reject  : từ chối, thất bại
+            // viết các logic code 
+            // nếu như thành công thì gọi resolve
+            // nếu thất bại thì gọi reject
+            resolve([1,2,3])
+            // reject("có lỗi!")
+
+        })
+        promise
+        .then(data1=>{
+            // console.log("data1",data1);
+            return[1]
+        })
+        .then(data2=>{
+            // console.log("data2",data2);
+        })
+        .catch(err=>console.log("1111",err))
+       
+        // setTimeout(() => {
+        //     console.log(111);
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         setTimeout(() => {
+        //             console.log(333);
+        //         }, 1000);
+        //     }, 1000);
+        // }, 1000);
+        // callback hell
+        // tư duy dùng promise để quyết vấn đề.
+
+        // let newPromise= new Promise((resolve,reject)=>{
+        //         // resolve();
+        // })
+        // newPromise
+        // .then(data1=>{
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("111");
+        //             resolve()
+        //         },3000)
+        //     })
+        // })
+        // .then(data2=>{
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("2222");
+        //             resolve()
+        //         },3000)
+        //     })
+        // })
+        // .then(data3=>{
+        //     setTimeout(() => {
+        //         console.log("3333")
+        //     }, 3000);
+        // })
+
+        function getData() {
+         try {
+             let getData = fetch("https://jsonplaceholder.typicode.com/todo1s");
+             getData
+                 .then(user => user.json())
+                 .then(data => {
+                     console.log("giá trị data lấy về", data);
+                 })
+                 .catch(err => console.log("lỗi khi lấy về", err))
+         } catch (error) {
+         }
+        }
+        // getData();
+        console.log("11111");
+        try {
+              console.log(a);
+        } catch (err) {
+            console.log("bug",err);
+        }
+        console.log("22222");
+     </script>
+</body>
+</html>
