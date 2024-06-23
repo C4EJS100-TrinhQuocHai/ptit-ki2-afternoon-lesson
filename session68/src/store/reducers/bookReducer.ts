@@ -31,10 +31,14 @@ const bookReducer = (state = initialBook, action: Action) => {
             return state;
         case "FILTER":
             console.log("tiến hành lọc");
-            let resultFilter = initialBook.filter((item) => {
-                return item.status == action.payload;
-            });
-            return resultFilter;
+            if (action.payload) {
+                let resultFilter = initialBook.filter((item) => {
+                    return item.status == action.payload;
+                });
+                return resultFilter;
+            }
+            return state;
+
         default:
             return state;
     }
