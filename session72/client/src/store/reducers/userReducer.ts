@@ -20,10 +20,9 @@ export const deleteUser: any = createAsyncThunk(
         const response = await axios.delete(
             `http://localhost:8080/users/${id}`
         );
-        return response.data;
+        return id;
     }
 );
-
 const reducerUser = createSlice({
     name: "user",
     initialState: {
@@ -48,12 +47,9 @@ const reducerUser = createSlice({
                 state.users.push(action.payload);
             })
             .addCase(deleteUser.fulfilled, (state: any, action: any) => {
-                console.log(4444, action.payload);
-
-                let data = state.users.filter((item: any) => {
+                state.users = state.users.filter((item: any) => {
                     return item.id != action.payload;
                 });
-                console.log(11111, state.users);
             });
     },
 });

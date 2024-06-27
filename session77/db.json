@@ -1,0 +1,14 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "mèn mén",
+      "image": ""
+    },
+    {
+      "name": "gà chọi",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ptit-2b7f7.appspot.com/o/images%2Fanimal3.jpg?alt=media&token=15f4a458-acbd-4538-b52c-c3308af2e4a1",
+      "id": 2
+    }
+  ]
+}
